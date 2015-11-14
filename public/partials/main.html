@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Please add your words</h3>
+        <button type="button" class="btn btn-success btn-xs pull-right" style="margin-top:-20px"
+                ng-click="add()">Add</button>
+    </div>
+    <div class="panel-body">
+        <input type="text" name="name" ng-model="word" class="form-control" value="" title="" required="required">
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading custom-panel-heading">
+        <h3 class="panel-title">Your words
+        <dir-pagination-controls class="pull-right" style="margin-top: -10px" boundary-links="true"
+                                 on-page-change="pageChangeHandler(newPageNumber)" template-url="partials/pagination.html"></dir-pagination-controls>
+        </h3>
+    </div>
+    <table class="table table-hover">
+        <tbody>
+            <tr  dir-paginate="i in words | itemsPerPage: pageSize" current-page="currentPage"
+                 total-items="totalItems.count">
+                <td>
+                    <a href="#/word/{{i._id}}" class="navbar-link">{{ i.word }}</a>
+                    <button type="button" class="btn btn-danger btn-xs pull-right" ng-click="delete(i._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

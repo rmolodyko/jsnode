@@ -1,0 +1,14 @@
+<ol class="breadcrumb">
+	<li>
+		<a href="#">List</a>
+	</li>
+	<li class="active">{{word.word}}</li>
+</ol>
+<div class="panel panel-default">
+	  <div class="panel-heading">
+			<h3 class="panel-title">Word</h3>
+	  </div>
+	  <div class="panel-body" ng-class="{active:word.word=='hey'}">
+          {{ word.word }}
+	  </div>
+</div>
