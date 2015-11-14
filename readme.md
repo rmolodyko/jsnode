@@ -1,24 +1,17 @@
 # Test application
 
----
-
 #### I am trying use for this:
 
 * [Angular](https://angularjs.org)
 * [NodeJS](https://nodejs.org/en/)
 * [MongoDB](https://www.mongodb.org)
 
-----
-
 Start mongo server in my case:
 
     mongod --dbpath=c:/rest/data/db
-   
 Start node:
 
     nodemon server.js
-
----
 
 ## TODO
 
