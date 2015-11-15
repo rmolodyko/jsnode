@@ -20,3 +20,9 @@ Start node:
 3. Add Gulp.js for parsing less files
 4. Add more futures for app
 5. Install resources via npm
+
+##Links
+
+* [Pagination for AngularJS](https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination)
+* [Animation](http://docs.webplatform.org/wiki/css/properties/animations)
+* [Bootstrap](http://getbootstrap.com/css/)
