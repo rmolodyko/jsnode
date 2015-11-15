@@ -16,6 +16,10 @@ mainModule.config(['$routeProvider', function($routeProvider) {
             templateUrl: '/partials/word.html',
             controller: 'wordCtrl'
         })
+        .when('/login', {
+            templateUrl: '/partials/login.html',
+            controller: 'loginCtrl'
+        })
         .otherwise({
             templateUrl: 'partials/main.html',
             controller: 'listCtrl'

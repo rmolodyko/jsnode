@@ -26,3 +26,6 @@ Start node:
 * [Pagination for AngularJS](https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination)
 * [Animation](http://docs.webplatform.org/wiki/css/properties/animations)
 * [Bootstrap](http://getbootstrap.com/css/)
+* [Create](https://scotch.io/tutorials/submitting-ajax-forms-the-angularjs-way) form for Angular
+* [Validate](https://scotch.io/tutorials/angularjs-form-validation) form on client
+* Best tutorials [https://scotch.io](https://scotch.io)

@@ -53,3 +53,20 @@ appControllers.controller('listCtrl', ['$scope', '$http', 'Word', function ($sco
         $scope.words = Word.getAll({limit:$scope.pageSize, skip:$scope.pageSize*($scope.currentPage-1)});
     }
 }]);
+
+// Controller for work with one word
+appControllers.controller('loginCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+    $scope.formData = {};
+
+    $scope.processForm = function() {
+
+        console.log('login ctrl');
+        $http.post('/signup', $scope.formData).success(function(data) {
+            $scope.msg = data;
+            console.log(data);
+        });
+    };
+}]);
+
+
+

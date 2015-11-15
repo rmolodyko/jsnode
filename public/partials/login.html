@@ -1,0 +1,31 @@
+<!-- SHOW ERROR/SUCCESS MESSAGES -->
+<div class="alert alert-danger" ng-show="msg.text">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	{{ msg.text }}
+</div>
+
+<div class="panel panel-default">
+	  <div class="panel-heading">
+			<h3 class="panel-title">Sign up!</h3>
+	  </div>
+	  <div class="panel-body">
+          <form>
+              <div id="name-group" class="form-group" ng-class="{ 'has-error' : msg.errLogin }">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="Login..." ng-model="formData.login">
+                  <span class="help-block">{{ msg.errLogin }}</span>
+              </div>
+              <div id="superhero-group" class="form-group" ng-class="{ 'has-error' : msg.errPass }">
+                  <label>Superhero Alias</label>
+                  <input type="text" class="form-control" placeholder="Password..."
+                         ng-model="formData.password">
+                  <span class="help-block">{{ msg.errPass }}</span>
+              </div>
+              <button type="submit" class="btn btn-lg btn-block" ng-click="processForm()">
+                  Submit!
+              </button>
+          </form>
+	  </div>
+</div>
+
+{{formData}}
