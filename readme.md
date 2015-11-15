@@ -31,3 +31,5 @@ Start node:
 * Best tutorials [https://scotch.io](https://scotch.io)
 * [Simple authorize on node](http://habrahabr.ru/post/145970/)
 * [MongooseAPI](http://mongoosejs.com/docs/api.html)
+* [Translation Angular](https://scotch.io/tutorials/internationalization-of-angularjs-applications)
+* [AngularJS SEO friendly translations](http://fadeit.dk/blog/post/angularjs-seo-for-angular-translate)
