@@ -29,3 +29,5 @@ Start node:
 * [Create](https://scotch.io/tutorials/submitting-ajax-forms-the-angularjs-way) form for Angular
 * [Validate](https://scotch.io/tutorials/angularjs-form-validation) form on client
 * Best tutorials [https://scotch.io](https://scotch.io)
+* [Simple authorize on node](http://habrahabr.ru/post/145970/)
+* [MongooseAPI](http://mongoosejs.com/docs/api.html)
