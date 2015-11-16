@@ -57,6 +57,7 @@ appControllers.controller('listCtrl', ['$scope', '$http', 'Word', function ($sco
 // Controller for work with one word
 appControllers.controller('loginCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
     $scope.formData = {};
+    $scope.formData.$invalid = true;
 
     $scope.processForm = function() {
 

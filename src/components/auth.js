@@ -60,9 +60,43 @@ auth.execute = function (app) {
     }));
 
     app.post('/signup', function(req, res, next) {
-        //console.log(req.body);
-        res.send({errLogin: 'Your login is wrong', errPass: 'Your password is wrong', text: 'Something went wrong!'});
+
+        // Validate form
+        var errors = validateSignUpForm(req);
+        // If errors is exists then return them or do signup work
+        if (Object.keys(errors).length > 0) {
+            res.send(errors);
+        } else {
+            // Save user
+            res.send({'text':'redirect'});
+        }
     });
 };
 
 module.exports = auth;
+
+function validateSignUpForm(req) {
+
+    var login = req.body.login;
+    var password = req.body.password;
+    var errors = {};
+
+    if (!checkLength(login)) {
+        errors.errLogin = 'Your login is wrong';
+    }
+
+    if (!checkLength(password, 6)) {
+        errors.errPass = 'Your password is wrong';
+    }
+
+    return errors;
+}
+
+function checkLength(value, len) {
+    var length = len || 0;
+    if (value != null && value.length > length) {
+        return true;
+    } else {
+        return false;
+    }
+}
