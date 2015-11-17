@@ -42,6 +42,7 @@ Start gulp:
 ###Node
 
 * [Simple authorize on node](http://habrahabr.ru/post/145970/)
+* [Express](http://expressjs.com)
 
 ###Gulp
 
