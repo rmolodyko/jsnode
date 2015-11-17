@@ -33,3 +33,7 @@ Start node:
 * [MongooseAPI](http://mongoosejs.com/docs/api.html)
 * [Translation Angular](https://scotch.io/tutorials/internationalization-of-angularjs-applications)
 * [AngularJS SEO friendly translations](http://fadeit.dk/blog/post/angularjs-seo-for-angular-translate)
+
+##Gulp
+* [Plugins](http://blog.nodejitsu.com/npmawesome-9-gulp-plugins/)
+* [Set up](https://markgoodyear.com/2014/01/getting-started-with-gulp/)

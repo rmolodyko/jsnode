@@ -1,5 +1,5 @@
 {
-  "name": "rest",
+  "name": "test-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,5 +13,8 @@
     "express": "^4.13.3",
     "mongoose": "^4.2.5",
     "node-restful": "^0.2.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
   }
 }

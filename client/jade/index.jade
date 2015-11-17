@@ -1,0 +1,20 @@
+//
+   Created by rmolodyko on 17.11.2015.
+doctype html
+html(lang="en")
+   head
+      title= pageTitle1
+      script(type='text/javascript').
+         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+   body
+      h1 Hello world1 - node template engine
+      #container.col
+         if youAreUsingJade
+            p You are amazing
+         else
+            p Get on it!
+         p.
+            Jade is a terse and simple
+            templating language with a
+            strong focus on performance
+            and powerful features.
