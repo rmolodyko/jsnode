@@ -1,5 +1,0 @@
-{
-  "app-name": "Words",
-  "secret-key": "SecretKey",
-  "db-path": "mongodb://localhost/words"
-}

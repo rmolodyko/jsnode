@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    block title
+      title Default
+    link(href="/admin/resources/bootstrap.css", rel="stylesheet")
+  body
+    .container
+      nav.navbar.navbar-default(role='navigation')
+        a.navbar-brand(href='/admin') Ghost
+        ul.nav.navbar-nav
+          li(class=link === "default" ? 'active': "", id=link)
+            a(href='/admin') Default
+          li(class=link === "post" ? 'active': "")
+            a(href='/admin/post') Post
+
+      block content
+        h1 Default

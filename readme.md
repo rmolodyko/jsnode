@@ -16,11 +16,9 @@ Start gulp:
 
     gulp default
 
-## TODO
+Start server with admin panel:
 
-1. Add reloading node server by gulp
-2. Move autoreload.js to bower
-3. More practice in jade and stylus
+    gulp start-server
 
 ##Links
 
@@ -38,6 +36,9 @@ Start gulp:
 * [Animation](http://docs.webplatform.org/wiki/css/properties/animations)
 * [Bootstrap](http://getbootstrap.com/css/)
 * [MongooseAPI](http://mongoosejs.com/docs/api.html)
+* [Jade](http://jade-lang.com/reference/)
+* [Convert markdown on real-time](https://github.com/showdownjs/showdown)
+* [Ghost](http://dev.ghost.org/tag/releases/)
 
 ###Node
 

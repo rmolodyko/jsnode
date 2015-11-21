@@ -1,0 +1,9 @@
+default:
+  route: /admin
+  controller: /default
+  action: render
+
+post:
+  route: /admin/post
+  controller: /post
+  action: some
