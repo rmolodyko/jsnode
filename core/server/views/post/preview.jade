@@ -2,4 +2,11 @@ extends ../layout.jade
 block title
   title Post
 block content
-  h1 My post
+  .panel(class='panel-default', ng-app="post")
+    .panel-heading
+      h3.panel-title Panel title
+    .panel-body(ng-controller="PostController") Panel body
+
+  append script
+    script(src="/admin/resources/script/post/index.js", type="text/javascript")
+    script(scr="/admin/resources/script/post/jquery.min.js", type="text/javascript")

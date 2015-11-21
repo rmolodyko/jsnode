@@ -92,7 +92,7 @@ gulp.task('clean-main-coffee', function() {
         .pipe(rm());
 });
 
-gulp.task('compile-main-coffee', function() {
+gulp.task('compile-main-coffee', ['clean-main-coffee'], function() {
     gulp.src('./server.coffee')
         .pipe(coffee({bare: true}).on('error', gutil.log))
         .pipe(gulp.dest('./'));
@@ -104,29 +104,35 @@ gulp.task('compile-main-coffee', function() {
 //        .pipe(gulp.dest('./core/build'));
 //});
 
-gulp.task('watch-main-coffee', function() {
-    gulp.watch('./server.coffee', ['compile-main-coffee']);
-});
+//gulp.task('watch-main-coffee', function() {
+//    gulp.watch('./server.coffee', ['compile-main-coffee']);
+//});
 
-gulp.task('watch-core', function() {
-    gulp.watch('./core/**/*.coffee', ['compile-core']);
-    gulp.watch('./core/**/*.yaml', ['compile-core']);
+gulp.task('watch-core', ['watch-main-javascript'], function() {
+    gulp.watch('./core/**/*.coffee', ['compile-main-coffee']);
+    gulp.watch('./core/**/*.yaml', ['compile-main-coffee']);
 });
 
 gulp.task('watch-main-javascript', function() {
+
     nodemon({
         script: './server.coffee',
-        ext: 'coffee',
+        ext: 'coffee js',
         env: { 'NODE_ENV': 'development' }
+    }).on('restart', function(){
+        livereload.changed('server.coffee');
     });
 });
 
-gulp.task('start-server', ['clean-main-coffee'], function() {
+gulp.task('start-server', function() {
+
+    // listen for changes
+    livereload.listen();
+
     gulp.start(
-        'compile-main-coffee',
-        'watch-main-coffee',
-        'watch-main-javascript',
+        //'compile-main-coffee',
         'watch-core'
+        //'watch-main-javascript'
         //'compile-core'
     );
 });
