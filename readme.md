@@ -44,6 +44,7 @@ Start server with admin panel:
 
 * [Simple authorize on node](http://habrahabr.ru/post/145970/)
 * [Express](http://expressjs.com)
+* [DI](https://github.com/jaredhanson/electrolyte)
 
 ###Gulp
 
