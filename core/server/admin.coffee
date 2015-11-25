@@ -4,7 +4,9 @@ Route = require './lib/route'
 MiddlewareCommon = require './middleware/common'
 routes = yaml.safeLoad fs.readFileSync __dirname+'/config/routes.yaml'
 params = yaml.safeLoad fs.readFileSync __dirname+'/config/default.yaml'
+DI = require './lib/di'
 
+# TODO Create services which i will be able to use in my di
 class Admin
 
   # Instantiate admin app
@@ -13,8 +15,10 @@ class Admin
     # Set common middleware
     MiddlewareCommon.set(@app)
 
+    di = DI.getInstance()
+
     # Set routes on admin
-    route = new Route
+    route = di.create(__dirname+'/lib/route')
     route.assign(@app, params.endpoint, routes, params)
 
 module.exports = Admin

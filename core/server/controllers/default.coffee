@@ -2,8 +2,8 @@ Controller = require '../lib/controller'
 
 class DefaultController extends Controller
 
-  render: ()->
-    @res.render 'layout',
+  render: (req, res)->
+    res.render 'layout',
       link: 'default'
 
 module.exports = DefaultController

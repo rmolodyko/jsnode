@@ -1,15 +1,17 @@
 express = require 'express'
 
 # Used for resolving routes and controllers
-#TODO Add Dependency Injection to controller
 class Route
+
+  constructor: (@di)->
 
   # Assign routers on map
   assign: (app, map, routes, params)=>
+
     # Iterate and set all routes
     for routeName, route of routes
       # Use closure for storing data between iterations
-      do (routeName, route, app)->
+      do (routeName, route, app)=>
         # Get router
         router = express.Router()
         # Get url of route
@@ -17,17 +19,17 @@ class Route
         # Get method for route
         method = if route.method? then route.method else 'all'
         # Set callback when route will be called
-        router[method] url, (req, res)->
-          # Get class
-          classController = require(__dirname + "/.."+ params['controller-path'] + route.controller)
-          # Instantiate controller
-          controller = new classController
-          # Save request and response
-          controller.set req, res
+        router[method] url, (req, res)=>
+          # Get and instantiate class, use di for this
+          controller = @di.create __dirname + "/.."+ params['controller-path'] + route.controller
           # Call render
-          do controller[route.action]
+          # TODO maybe need di for passing arguments to action method
+          controller[route.action](req, res)
 
         # Assign router on map
         app.use "#{map}", router
 
-module.exports = Route
+exports = module.exports = Route
+
+exports['@require'] = [__dirname+'/di']
+

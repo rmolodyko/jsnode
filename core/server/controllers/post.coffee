@@ -2,8 +2,10 @@ Controller = require '../lib/controller'
 
 class PostController extends Controller
 
-  some: ()->
-    @res.render 'post/preview',
+  some: (req, res)->
+    res.render 'post/preview',
       link: 'post'
 
-module.exports = PostController
+exports = module.exports = PostController
+
+exports['@require'] = [__dirname+'/default']

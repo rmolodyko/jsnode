@@ -8,4 +8,4 @@ class Common
     app.set 'views', __dirname+"/../views"
     app.set 'view engine', 'jade'
 
-module.exports = Common
+exports = module.exports = Common

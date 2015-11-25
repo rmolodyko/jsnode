@@ -1,2 +1,4 @@
+# Prefix url to server app
 endpoint: /
+# Prefix path to controllers
 controller-path: /controllers
