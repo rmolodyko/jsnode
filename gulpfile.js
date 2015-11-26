@@ -35,16 +35,16 @@ var gulp = require('gulp'),
 //        .pipe(jade())
 //        .pipe(gulp.dest('./dist'));
 //});
-//
-///**
-// * Task to compile styl files
-// */
-//gulp.task('stylus', function () {
-//    gulp.src('./client/stylus/*.styl')
-//        .pipe(stylus())
-//        .pipe(gulp.dest('./dist/css'));
-//});
-//
+
+/**
+ * Task to compile styl files
+ */
+gulp.task('stylus', function () {
+    gulp.src('./core/server/resources/custom/style/**/*.styl')
+        .pipe(stylus())
+        .pipe(gulp.dest('./core/server/dist/css'));
+});
+
 ///**
 // * Task to compile coffee script files
 // */
@@ -72,16 +72,16 @@ var gulp = require('gulp'),
 //
 //    // Set some watcher on changing files
 //    //gulp.watch('./client/jade/*', ['jade']);
-//    //gulp.watch('./client/stylus/*', ['stylus']);
-//    gulp.watch('./client/coffee/*', ['coffee']);
+//    gulp.watch('./client/stylus/*', ['stylus']);
+//    //gulp.watch('./client/coffee/*', ['coffee']);
 //
 //    // Create LiveReload server
-//    livereload.listen();
+//    //livereload.listen();
 //
 //    // Watch any files in dist/ reload on change
-//    gulp.watch(['./dist/**']).on('change', livereload.changed);
+//    //gulp.watch(['./dist/**']).on('change', livereload.changed);
 //});
-//
+
 //// Define default task
 //gulp.task('default', ['clean'], function() {
 //    gulp.start('coffee', 'move-js', 'watch');
@@ -93,6 +93,7 @@ gulp.task('clean-main-coffee', function() {
 });
 
 gulp.task('compile-main-coffee', ['clean-main-coffee'], function() {
+    console.log('restart');
     gulp.src('./server.coffee')
         .pipe(coffee({bare: true}).on('error', gutil.log))
         .pipe(gulp.dest('./'));
@@ -110,7 +111,9 @@ gulp.task('compile-main-coffee', ['clean-main-coffee'], function() {
 
 gulp.task('watch-core', ['watch-main-javascript'], function() {
     gulp.watch('./core/**/*.coffee', ['compile-main-coffee']);
+    gulp.watch('./core/**/*.jade', ['compile-main-coffee']);
     gulp.watch('./core/**/*.yaml', ['compile-main-coffee']);
+    gulp.watch('./core/server/resources/custom/style/**/*.styl', ['stylus']);
 });
 
 gulp.task('watch-main-javascript', function() {
@@ -130,7 +133,7 @@ gulp.task('start-server', function() {
     livereload.listen();
 
     gulp.start(
-        //'compile-main-coffee',
+        'stylus',
         'watch-core'
         //'watch-main-javascript'
         //'compile-core'

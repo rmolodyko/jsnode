@@ -11,6 +11,11 @@
   If module need instantiate only one time then it need add annotation @singleton
   Example:
     exports['@singleton'] = true|false
+
+  If module need pass some additional params for example ?instantiate then in @require annotation
+  have to pass object as item with this ones
+  Example:
+    exports['@require'] = [{path: 'fs', instantiate: false}]
 ###
 class DI
 
@@ -23,7 +28,7 @@ class DI
     DI.instance ?= new DI
 
   # Instantiate class with dependencies
-  create: (path)->
+  create: (path, instantiate = true)->
     # Get class
     _class = require path
     # Get dependencies
@@ -34,7 +39,7 @@ class DI
       instance = @_getModule(path)
     else
       # Instantiate class
-      instance = @_instantiateModule _class, @_instantiateDependencies(depends)
+      instance = @_instantiateModule _class, @_instantiateDependencies(depends), instantiate
       # If this module has singleton annotation then set and then get this module
       # without repeat instantiation of module
       if singleton is true
@@ -42,17 +47,28 @@ class DI
     return instance
 
   # Instantiate current class
-  _instantiateModule: (_class, args)=>
+  _instantiateModule: (_class, args, instantiate)=>
     # Get correct arguments
     correctArgs = Array.prototype.concat.apply([null], args);
-    # Return new class
-    new (Function.prototype.bind.apply(_class, correctArgs))
+    # If need instantiate class
+    if instantiate
+      # Return new class
+      return new (Function.prototype.bind.apply(_class, correctArgs))
+      # If it is not a class
+    else
+      # Return new class
+      return _class
 
   # Instantiate class which is dependencies of current class
   _instantiateDependencies: (depends)=>
      args = []
      # Create array with dependencies
-     args.push(@create inst) for i, inst of depends
+     for i, inst of depends
+       # Check if it is object then it has some additional params
+       if typeof inst is 'object'
+         args.push(@create inst.path, inst.instantiate)
+       else
+         args.push(@create inst)
      return args
 
   # Get instance of module from container

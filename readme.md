@@ -39,13 +39,13 @@ Start server with admin panel:
 * [Jade](http://jade-lang.com/reference/)
 * [Convert markdown on real-time](https://github.com/showdownjs/showdown)
 * [Ghost](http://dev.ghost.org/tag/releases/)
+* [Style for markdown](https://gist.github.com/gamura/4550178)
+* [Auto-expand textarea](https://github.com/jackmoore/autosize)
 
 ###Node
 
 * [Simple authorize on node](http://habrahabr.ru/post/145970/)
 * [Express](http://expressjs.com)
-* [DI for Express](https://github.com/jaredhanson/electrolyte)
-* [About DI and IoC](http://martinfowler.com/articles/injection.html)
 
 ###Gulp
 

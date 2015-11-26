@@ -2,10 +2,14 @@ Controller = require '../lib/controller'
 
 class PostController extends Controller
 
+  constructor: (@fs)->
+
   some: (req, res)->
-    res.render 'post/preview',
-      link: 'post'
+    @fs.readFile 'readme.md', 'utf8', (err, data)=>
+      res.render 'post/preview',
+        link: 'post',
+        sample: data
 
 exports = module.exports = PostController
 
-exports['@require'] = [__dirname+'/default']
+exports['@require'] = [{path: 'fs', instantiate: false}]
