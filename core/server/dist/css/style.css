@@ -1,0 +1,8 @@
+#raw-input {
+  border: none;
+  box-shadow: none;
+  resize: none;
+}
+#raw-input:hover {
+  box-shadow: none;
+}

@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     coffee = require('gulp-coffee'),
     livereload = require('gulp-livereload'),
     nodemon = require('gulp-nodemon');
+    concat = require('gulp-concat');
 
 ///**
 // * Remove all resources before compilation

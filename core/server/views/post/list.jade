@@ -1,0 +1,10 @@
+extends ../layout.jade
+block title
+  title List
+block content
+  .list-group
+    each post, i in list
+      a.list-group-item(href='/admin/post/#{post.id}')= post.name
+
+  append script
+    script(src="/admin/resources/script/post/list.js")

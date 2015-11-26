@@ -3,8 +3,17 @@ default:
   controller: /default
   action: render
 
-
 post:
   route: /admin/posts
   controller: /post
-  action: some
+  action: posts
+
+post-add:
+  route: /admin/post/add
+  controller: /post
+  action: addPost
+
+post-get:
+  route: /admin/post/:id
+  controller: /post
+  action: getPost

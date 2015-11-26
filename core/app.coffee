@@ -4,8 +4,6 @@ Client = require './client/client'
 Admin = require './server/admin'
 app = express()
 
-
-
 class App
 
   # Start app

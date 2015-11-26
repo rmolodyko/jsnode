@@ -6,7 +6,6 @@ routes = yaml.safeLoad fs.readFileSync __dirname+'/config/routes.yaml'
 params = yaml.safeLoad fs.readFileSync __dirname+'/config/default.yaml'
 DI = require './lib/di'
 
-# TODO Create services which i will be able to use in my di
 class Admin
 
   # Instantiate admin app

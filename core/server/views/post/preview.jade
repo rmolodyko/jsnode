@@ -3,12 +3,34 @@ block title
   title Post
 block content
   .wrapper.clearfix(ng-controller="PostController", ng-app="post")
-    .col-xs-6.col-sm-6.col-md-6.col-lg-6
+    ol.breadcrumb.fix-breadcrumb
+      li
+        a(href='/admin/posts') List
+      li.active= post.name
+
+    .config(ng-init="urls = {postAdd: '/admin/post/add'}")
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12
       .panel(class='panel-default')
         .panel-heading
-          h3.panel-title Input markdown
+          h3.panel-title Setting
         .panel-body
-            textarea.form-control#raw-input(ng-model="content", rows="4", ng-init="content='#{sample}'")
+          .form-group
+            .col-sm-10
+              input.form-control(type='text', name='name', placeholder='Post Name...', ng-model='name', ng-init="name='#{post.name}'")
+            .col-sm-2
+              button.btn.btn-default(type='submit', ng-click="updatePost('#{post.id}')")
+                if post
+                  | Update Post
+                else
+                  | Add Post
+
+
+    .col-xs-6.col-sm-6.col-md-6.col-lg-6
+        .panel(class='panel-default')
+          .panel-heading
+            h3.panel-title Input markdown
+          .panel-body
+              textarea.form-control#raw-input(ng-model="content", rows="4", ng-init="content='#{post.content}'")
     .col-xs-6.col-sm-6.col-md-6.col-lg-6
       .panel(class='panel-default')
         .panel-heading
@@ -18,4 +40,4 @@ block content
 
   append script
     script(src="/admin/resources/bower_components/showdown/dist/showdown.min.js")
-    script(src="/admin/resources/script/post/index.js")
+    script(src="/admin/resources/script/post/preview.js")
